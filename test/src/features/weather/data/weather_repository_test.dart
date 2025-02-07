@@ -56,7 +56,7 @@ const encodedWeatherJsonResponse = """
 """;
 
 final expectedWeatherFromJson = Weather(
-  weatherParams: WeatherParams(temp: 282.55, tempMin: 280.37, tempMax: 284.26),
+  weatherParams: WeatherParams(temp: 282.55, tempMin: 280.37, tempMax: 284.26, feelsLike: 283.55),
   weatherInfo: [
     WeatherInfo(
       description: 'clear sky',

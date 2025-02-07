@@ -4,6 +4,11 @@ import 'package:open_weather_example_flutter/src/features/weather/application/pr
 import 'package:open_weather_example_flutter/src/features/weather/domain/weather/weather_data.dart';
 import 'package:open_weather_example_flutter/src/features/weather/presentation/weather_icon_image.dart';
 
+extension StringCasingExtension on String {
+  String get toCapitalized => length > 0 ?'${this[0].toUpperCase()}${substring(1).toLowerCase()}':'';
+  String get toTitleCase => replaceAll(RegExp(' +'), ' ').split(' ').map((str) => str.toCapitalized).join(' ');
+}
+
 class CurrentWeather extends ConsumerWidget {
   const CurrentWeather({super.key});
   @override

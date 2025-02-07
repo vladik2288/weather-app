@@ -10,6 +10,7 @@ class WeatherData {
     required this.description,
     required this.date,
     required this.icon,
+    required this.feelsLike,
   });
 
   factory WeatherData.from(Weather weather) {
@@ -20,6 +21,7 @@ class WeatherData {
       description: weather.weatherInfo[0].main,
       date: DateTime.fromMillisecondsSinceEpoch(weather.dt * 1000),
       icon: weather.weatherInfo[0].icon,
+      feelsLike: Temperature.celsius(weather.weatherParams.feelsLike),
     );
   }
 
@@ -29,6 +31,7 @@ class WeatherData {
   final String description;
   final DateTime date;
   final String icon;
+  final Temperature feelsLike;
 
   String get iconUrl => "https://openweathermap.org/img/wn/$icon@2x.png";
 }

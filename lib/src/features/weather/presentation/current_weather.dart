@@ -40,13 +40,22 @@ class CurrentWeatherContents extends ConsumerWidget {
     final temp = data.temp.celsius.toInt().toString();
     final minTemp = data.minTemp.celsius.toInt().toString();
     final maxTemp = data.maxTemp.celsius.toInt().toString();
+    final feelsLike = data.feelsLike.celsius.toInt().toString();
+    final description = data.description;
     final highAndLow = 'H:$maxTemp° L:$minTemp°';
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        WeatherIconImage(iconUrl: data.iconUrl, size: 120),
-        Text(temp, style: textTheme.displayMedium),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            WeatherIconImage(iconUrl: data.iconUrl, size: 120),
+            Text(description.toCapitalized, style: textTheme.displaySmall), // DESCRIPTION
+          ],
+        ),
+        Text('$temp°', style: textTheme.displayMedium),
         Text(highAndLow, style: textTheme.bodyMedium),
+        Text('Feels like: $feelsLike°', style: textTheme.headlineSmall), // FEELS LIKE
       ],
     );
   }

@@ -10,6 +10,7 @@ class WeatherParams with _$WeatherParams {
     required double temp,
     @JsonKey(name: 'temp_min') required double tempMin,
     @JsonKey(name: 'temp_max') required double tempMax,
+    @JsonKey(name: 'feels_like') required double feelsLike,
   }) = _WeatherParams;
 
   factory WeatherParams.fromJson(Map<String, dynamic> json) =>
